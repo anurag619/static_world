@@ -1,0 +1,8 @@
+*.py~
+*.pyc
+*.html~
+*.css~
+*.js~
+*.pid
+*.swp
+output/
