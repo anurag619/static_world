@@ -21,6 +21,4 @@ I don’t possess a professional camera and I don’t click but still you will f
 I am passionate about Python and web technology, the open source variety in particular. I have included everything else on my landingpage_
 
 
-.. _landingpage: http://anuragkr.in/
-
-you can have a look at it.
+.. _landingpage: http://anuragkr.in/ you can have a look at it.

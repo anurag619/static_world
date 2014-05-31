@@ -20,7 +20,7 @@ DEFAULT_DATE_FORMAT = '%d %m %Y'
 
 OUTPUT_PATH = 'output'
 
-
+STATIC_PATHS = ["images", ]
 
 
 
