@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Anurag'
 SITENAME = u'Static_World'
-SITEURL = ''
+SITEURL = 'http://anurag619.github.io/static_world'
 
 #Navigation sections and relative URL:
 SECTIONS = [('About', 'howdy.html') ,
@@ -18,7 +18,7 @@ DATE_FORMAT = {
 }
 DEFAULT_DATE_FORMAT = '%d %m %Y'
 
-OUTPUT_PATH = '/your/output/directory'
+OUTPUT_PATH = 'output'
 
 
 
