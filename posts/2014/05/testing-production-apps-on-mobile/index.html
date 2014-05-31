@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,700' rel='stylesheet' type='text/css' />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title> Testing production apps on mobile | Static_World </title>
+
+    <link rel="stylesheet" href="../../../../theme/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../theme/css/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../theme/css/font-awesome.css" type="text/css"/>
+  </head>
+  <body>
+    <div class=container>
+<div class="header">
+    <a href="../../../../">Static_World</a> <span class="muted"></span>
+</div>
+
+<div class=navigation>
+    <ul>
+            <li><a href="../../../../howdy.html">About</a> </li>
+            <li><a href="../../../../categories.html">category</a> </li>
+    </ul>
+</div>
+<div class=separator></div>        
+        <div class=body>
+    <h1 class="title"> Testing production apps on mobile</h1>
+    <p class=date> Thu 22 May 2014 </p>
+    <p>Assuming you have ADB and Eclipse IDE installed.</p>
+<p>I am using Samsung Galaxy Pro to connect to fedora 19 but it shouldn't really matter if you have a different device.</p>
+<p>In the eclipse toolkit, you have the option to run it directly on a device. It's rather quick to do so but the experience is same as that of emulator.  On your phone:</p>
+<ol class="arabic">
+<li><p class="first">Enable USB debugging (modern android versions this is present as Developers Option ) as well as installation of apk from sources other than the market (in the settings &gt; security option).</p>
+</li>
+<li><p class="first">In the AndroidManifest.xml file , add:</p>
+<pre class="literal-block">
+android: debuggable=&quot;True&quot;
+</pre>
+</li>
+</ol>
+<p>to the &lt;application&gt; element.</p>
+<ol class="arabic" start="3">
+<li><p class="first">Connect your device with your system via USB cable, then Open terminal:</p>
+<pre class="literal-block">
+$ adb devices
+</pre>
+</li>
+</ol>
+<p>you will get a unique id for the device attached. Keep a note of this id, we will be using this below.</p>
+<ol class="arabic simple" start="4">
+<li>You need to add a udev rules file that contains a USB configuration for each type of device you want to use for development. In the rules file, each device manufacturer is identified by a unique vendor ID, as specified by the <em>ATTR{idVendor}</em> property. For a list of vendor IDs, see <a class="reference external" href="http://developer.android.com/tools/device.html#VendorIds">vendor ids</a> .</li>
+</ol>
+<p>Log in as root and create this file: /etc/udev/rules.d/51-android.rules.</p>
+<p>And Use this format to add each vendor to the file:</p>
+<pre class="literal-block">
+SUBSYSTEM==&quot;usb&quot;, ATTR{idVendor}==&quot;0bb4&quot;, MODE=&quot;0666&quot;, GROUP=&quot;plugdev&quot;
+</pre>
+<p>In this example, the vendor ID is for HTC, change it according to your device.</p>
+<p>Now execute:</p>
+<pre class="literal-block">
+chmod a+r /etc/udev/rules.d/51-android.rules
+</pre>
+<ol class="arabic simple" start="5">
+<li>Your device is now configured, when testing apps from Eclipse IDE select this device when prompted.</li>
+</ol>
+<p><strong>Other ADB uses</strong></p>
+<p>After step 4 above, type:</p>
+<pre class="literal-block">
+$ adb shell
+</pre>
+<p>this will list the root contents of your phone. Next if you do:</p>
+<pre class="literal-block">
+$ ls
+</pre>
+<p>All the files will be visible to you. Other operations such as: <em>cd, mkdir</em> etc are also applicable.</p>
+<p>If you wish to know more about ADB operations type $ adb in your terminal, you will get all available commands to play with.</p>
+<p><a class="reference external" href="http://developer.android.com/tools/device.html">reference</a></p>
+
+    
+<div class=twitter>
+<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+    <p class=tags>This entry was tagged as
+      <a href="../../../../tag/phonegap/">phonegap</a>
+      <a href="../../../../tag/fedora/">Fedora</a>
+    </p>
+        </div>
+        
+<div class=footer>
+  <p>&copy; Copyright <script language="JavaScript">var date = new Date(); document.write(date.getFullYear());</script> by Anurag</p>
+  <p> Powered by <a href="http://pypi.python.org/pypi/pelican/" target="_blank">Pelican</a>.  
+    <a href="https://github.com/fjavieralba/flasky">Theme</a>  by <a href="http://fjavieralba.com">fjavieralba</a>
+  </p> 
+  <p>
+    <div class=social style="font-size: 27px;">
+      <ul>
+            
+        <a href="http://twitter.com/ak_8085" target="_blank"> <li> <i class="icon-twitter-sign icon-large"> </li></i> </a>
+        <a href="http://github.com/anurag619" target="_blank"> <li> <i class="icon-github-sign icon-large"></i> </li> </a>
+      </ul>
+    </div>
+  </p>
+</div>    </div>
+  </body>
+</html>

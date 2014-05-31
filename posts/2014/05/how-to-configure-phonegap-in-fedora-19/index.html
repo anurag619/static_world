@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,700' rel='stylesheet' type='text/css' />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title> How to configure PhoneGap in Fedora 19 | Static_World </title>
+
+    <link rel="stylesheet" href="../../../../theme/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../theme/css/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../theme/css/font-awesome.css" type="text/css"/>
+  </head>
+  <body>
+    <div class=container>
+<div class="header">
+    <a href="../../../../">Static_World</a> <span class="muted"></span>
+</div>
+
+<div class=navigation>
+    <ul>
+            <li><a href="../../../../howdy.html">About</a> </li>
+            <li><a href="../../../../categories.html">category</a> </li>
+    </ul>
+</div>
+<div class=separator></div>        
+        <div class=body>
+    <h1 class="title"> How to configure PhoneGap in Fedora 19</h1>
+    <p class=date> Sat 31 May 2014 </p>
+    <p>Building android apps in native Java is cool but the only problem with this methodology is that you cannot port the same into other platforms (like Facebook, Windows etc). This drawback can be effectively removed if you use HTML5, CSS3 and Javascript to build the mobile apps. This is where <a class="reference external" href="http://phonegap.com/">PhoneGap</a> comes in handy.</p>
+<p>The installation page of Phonegap gives some instruction on how to install some dependencies.</p>
+<p><strong>Npm and NodeJS</strong></p>
+<ol class="arabic">
+<li><p class="first">To install Node you need to install some dependencies such as c++/gcc, which is used in compilation of the former:</p>
+<pre class="literal-block">
+$ sudo yum install gcc-c++
+</pre>
+</li>
+</ol>
+<blockquote>
+<p>then install node. You can either do:</p>
+<pre class="literal-block">
+$ yum install nodejs
+</pre>
+</blockquote>
+<ol class="arabic" start="2">
+<li><p class="first">or you can install it from the source files.</p>
+<blockquote>
+<p>a: Download the source code from the website.</p>
+<p>b:</p>
+<pre class="literal-block">
+$ cd Downloads
+</pre>
+<p>c:</p>
+<pre class="literal-block">
+$ tarnode-v0.8.15.tar.gz (change the versions accordingly)
+</pre>
+<p>d:</p>
+<pre class="literal-block">
+$ cd node-v0.8.15
+</pre>
+<p>e:</p>
+<pre class="literal-block">
+$ ./configure &amp;&amp; make &amp;&amp; sudo make install
+</pre>
+<p>f: Add the path in system, if its not present:</p>
+<pre class="literal-block">
+$ cd
+
+$sudo vi .bash_profile
+</pre>
+<p>add these lines in the file:</p>
+<pre class="literal-block">
+PATH = $PATH:/usr/local/bin
+
+export PATH
+</pre>
+</blockquote>
+</li>
+<li><p class="first">Now that you have node, installation of npm will be very easy.</p>
+<blockquote>
+<ul>
+<li><p class="first">get the source from Github</p>
+</li>
+<li><p class="first">untar it, move into that directory and then:</p>
+<pre class="literal-block">
+$ ./configure &amp;&amp; make &amp;&amp; sudo make install
+</pre>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p>4:</p>
+<pre class="literal-block">
+$ sudo npm install -g phonegap
+</pre>
+<ol class="arabic" start="5">
+<li><p class="first">Phonegap should be installed now. Move into a directory where you wish to create a app:</p>
+<pre class="literal-block">
+$ phonegap create my-app
+
+$ cd myapp
+
+$ phonegap run android
+</pre>
+</li>
+</ol>
+<p>At this moment if you have a mobile device connected to the system the app will be installed on the device itself. Read <a class="reference external" href="http://anurag3rd.wordpress.com/2014/02/10/how-to-test-android-apps-on-phone-from-eclipse-ide-in-fedora-19/">testing production apps on mobile</a></p>
+
+    
+<div class=twitter>
+<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+    <p class=tags>This entry was tagged as
+      <a href="../../../../tag/phonegap/">phonegap</a>
+      <a href="../../../../tag/fedora/">Fedora</a>
+    </p>
+        </div>
+        
+<div class=footer>
+  <p>&copy; Copyright <script language="JavaScript">var date = new Date(); document.write(date.getFullYear());</script> by Anurag</p>
+  <p> Powered by <a href="http://pypi.python.org/pypi/pelican/" target="_blank">Pelican</a>.  
+    <a href="https://github.com/fjavieralba/flasky">Theme</a>  by <a href="http://fjavieralba.com">fjavieralba</a>
+  </p> 
+  <p>
+    <div class=social style="font-size: 27px;">
+      <ul>
+            
+        <a href="http://twitter.com/ak_8085" target="_blank"> <li> <i class="icon-twitter-sign icon-large"> </li></i> </a>
+        <a href="http://github.com/anurag619" target="_blank"> <li> <i class="icon-github-sign icon-large"></i> </li> </a>
+      </ul>
+    </div>
+  </p>
+</div>    </div>
+  </body>
+</html>
