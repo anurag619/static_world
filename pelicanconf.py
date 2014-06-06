@@ -22,6 +22,11 @@ OUTPUT_PATH = 'output'
 
 STATIC_PATHS = ["images", ]
 
+# Shift the installed location of a file
+EXTRA_PATH_METADATA = {
+    'CNAME': {'path': 'CNAME'},
+}
+
 
 
 ARTICLE_URL = ('{slug}/')
