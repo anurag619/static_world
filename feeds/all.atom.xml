@@ -1,2 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Static_World</title><link href="http://anurag619.github.io/static_world/" rel="alternate"></link><link href="http://anurag619.github.io/static_world/feeds/all.atom.xml" rel="self"></link><id>http://anurag619.github.io/static_world/</id><updated>2014-06-08T06:40:07Z</updated></feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Static_World</title><link href="http://anurag619.github.io/static_world/" rel="alternate"></link><link href="http://anurag619.github.io/static_world/feeds/all.atom.xml" rel="self"></link><id>http://anurag619.github.io/static_world/</id><updated>2014-06-01T11:01:00+05:30</updated><entry><title>Delight for online customers</title><link href="http://anurag619.github.io/static_world/posts/2014/06/delight-for-online-customers/" rel="alternate"></link><updated>2014-06-01T11:01:00+05:30</updated><author><name>Anurag</name></author><id>tag:anurag619.github.io/static_world,2014-06-01:posts/2014/06/delight-for-online-customers/</id><summary type="html"></summary><category term="life"></category><category term="internet"></category></entry><entry><title>How to configure PhoneGap in Fedora 19</title><link href="http://anurag619.github.io/static_world/posts/2014/05/how-to-configure-phonegap-in-fedora-19/" rel="alternate"></link><updated>2014-05-31T12:01:00+05:30</updated><author><name>Anurag</name></author><id>tag:anurag619.github.io/static_world,2014-05-31:posts/2014/05/how-to-configure-phonegap-in-fedora-19/</id><summary type="html">&lt;p&gt;Building android apps in native Java is cool but the only problem with this methodology is that you cannot port the same into other platforms (like Facebook, Windows etc). This drawback can be effectively removed if you use HTML5, CSS3 and Javascript to build the mobile apps. This is where &lt;a class="reference external" href="http://phonegap.com/"&gt;PhoneGap&lt;/a&gt; comes in handy.&lt;/p&gt;
+&lt;p&gt;The installation page of Phonegap gives some instruction on how to install some dependencies.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Npm and NodeJS&lt;/strong&gt;&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;To install Node you need to install some dependencies such as c++/gcc, which is used in compilation of the former:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ sudo yum install gcc-c++
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;then install node. You can either do:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ yum install nodejs
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+&lt;ol class="arabic" start="2"&gt;
+&lt;li&gt;&lt;p class="first"&gt;or you can install it from the source files.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;a: Download the source code from the website.&lt;/p&gt;
+&lt;p&gt;b:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ cd Downloads
+&lt;/pre&gt;
+&lt;p&gt;c:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ tarnode-v0.8.15.tar.gz (change the versions accordingly)
+&lt;/pre&gt;
+&lt;p&gt;d:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ cd node-v0.8.15
+&lt;/pre&gt;
+&lt;p&gt;e:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ ./configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; sudo make install
+&lt;/pre&gt;
+&lt;p&gt;f: Add the path in system, if its not present:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ cd
+
+$sudo vi .bash_profile
+&lt;/pre&gt;
+&lt;p&gt;add these lines in the file:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+PATH = $PATH:/usr/local/bin
+
+export PATH
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Now that you have node, installation of npm will be very easy.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;get the source from Github&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;untar it, move into that directory and then:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ ./configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; sudo make install
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;4:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ sudo npm install -g phonegap
+&lt;/pre&gt;
+&lt;ol class="arabic" start="5"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Phonegap should be installed now. Move into a directory where you wish to create a app:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ phonegap create my-app
+
+$ cd myapp
+
+$ phonegap run android
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;At this moment if you have a mobile device connected to the system the app will be installed on the device itself. Read &lt;a class="reference external" href="http://anurag3rd.wordpress.com/2014/02/10/how-to-test-android-apps-on-phone-from-eclipse-ide-in-fedora-19/"&gt;testing production apps on mobile&lt;/a&gt;&lt;/p&gt;
+</summary><category term="phonegap"></category><category term="Fedora"></category></entry><entry><title>entrepreneurship vs job</title><link href="http://anurag619.github.io/static_world/posts/2014/05/entrepreneurship-vs-job/" rel="alternate"></link><updated>2014-05-23T12:01:00+05:30</updated><author><name>Anurag</name></author><id>tag:anurag619.github.io/static_world,2014-05-23:posts/2014/05/entrepreneurship-vs-job/</id><summary type="html">&lt;p&gt;Today while I was loitering around, few conversations (from the past) made me smile. yes I also decided I would also write a piece on this.&lt;/p&gt;
+&lt;p&gt;why our Indian culture promotes the culture of job searching instead of creating jobs for others, why not create a company instead of opting for MBAs and post grad degrees? My parents like any all caring parents in India wants me to take up a job after I complete my B.tech, which is quite natural considering the fact that they have invested in me for many years and now they wish I should live a happy and peaceful life. This is what any parent will wish for his/her child, right ? Perfectly normal&lt;/p&gt;
+&lt;p&gt;But why not the other way around? Like how interesting it would have been if had they asked me to create a company instead of looking for jobs. (By the way I had already created one and its shut down as well. poor me!)&lt;/p&gt;
+&lt;p&gt;You see, I examined the generations of my family history and no one had ever diverted from the searching-the-job attitude after college (I will be the first one perhaps). So, no one knows what its like there, this entrepreneurship is total mystery land for them. And people are afraid from stepping into unknown places. Perfectly normal&lt;/p&gt;
+&lt;p&gt;Well, then how we could change things around? The first step might be : jump into the pool of entrepreneurship and inspire the others to do the same (one may not succeed in the first attempt, someday down the line you might win and then there will be no appetite for your hunger). This is a very interesting &lt;a class="reference external" href="http://www.ted.com/talks/cameron_herold_let_s_raise_kids_to_be_entrepreneurs.html"&gt;TED vedio&lt;/a&gt; which encourages people to create entrepreneurs.&lt;/p&gt;
+&lt;p&gt;I have made a start and I always energize my spirits by observing other young entrepreneurs making their mark in the world ex - &lt;a class="reference external" href="https://twitter.com/varun067"&gt;Varun Agarwal&lt;/a&gt;, &lt;a class="reference external" href="https://twitter.com/deepakravindran"&gt;Deepak Ravindran&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;And may be someday I will inspire others to take up entrepreneurship as a career option. But I have a long road ahead, one important message that I have learned from the past experiences :&lt;/p&gt;
+&lt;img alt="alternate text" class="align-center" src="/images/work.png" /&gt;
+</summary><category term="life"></category></entry><entry><title>Testing production apps on mobile</title><link href="http://anurag619.github.io/static_world/posts/2014/05/testing-production-apps-on-mobile/" rel="alternate"></link><updated>2014-05-22T12:01:00+05:30</updated><author><name>Anurag</name></author><id>tag:anurag619.github.io/static_world,2014-05-22:posts/2014/05/testing-production-apps-on-mobile/</id><summary type="html">&lt;p&gt;Assuming you have ADB and Eclipse IDE installed.&lt;/p&gt;
+&lt;p&gt;I am using Samsung Galaxy Pro to connect to fedora 19 but it shouldn't really matter if you have a different device.&lt;/p&gt;
+&lt;p&gt;In the eclipse toolkit, you have the option to run it directly on a device. It's rather quick to do so but the experience is same as that of emulator.  On your phone:&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Enable USB debugging (modern android versions this is present as Developers Option ) as well as installation of apk from sources other than the market (in the settings &amp;gt; security option).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;In the AndroidManifest.xml file , add:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+android: debuggable=&amp;quot;True&amp;quot;
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;to the &amp;lt;application&amp;gt; element.&lt;/p&gt;
+&lt;ol class="arabic" start="3"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Connect your device with your system via USB cable, then Open terminal:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ adb devices
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;you will get a unique id for the device attached. Keep a note of this id, we will be using this below.&lt;/p&gt;
+&lt;ol class="arabic simple" start="4"&gt;
+&lt;li&gt;You need to add a udev rules file that contains a USB configuration for each type of device you want to use for development. In the rules file, each device manufacturer is identified by a unique vendor ID, as specified by the &lt;em&gt;ATTR{idVendor}&lt;/em&gt; property. For a list of vendor IDs, see &lt;a class="reference external" href="http://developer.android.com/tools/device.html#VendorIds"&gt;vendor ids&lt;/a&gt; .&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Log in as root and create this file: /etc/udev/rules.d/51-android.rules.&lt;/p&gt;
+&lt;p&gt;And Use this format to add each vendor to the file:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+SUBSYSTEM==&amp;quot;usb&amp;quot;, ATTR{idVendor}==&amp;quot;0bb4&amp;quot;, MODE=&amp;quot;0666&amp;quot;, GROUP=&amp;quot;plugdev&amp;quot;
+&lt;/pre&gt;
+&lt;p&gt;In this example, the vendor ID is for HTC, change it according to your device.&lt;/p&gt;
+&lt;p&gt;Now execute:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+chmod a+r /etc/udev/rules.d/51-android.rules
+&lt;/pre&gt;
+&lt;ol class="arabic simple" start="5"&gt;
+&lt;li&gt;Your device is now configured, when testing apps from Eclipse IDE select this device when prompted.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Other ADB uses&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;After step 4 above, type:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ adb shell
+&lt;/pre&gt;
+&lt;p&gt;this will list the root contents of your phone. Next if you do:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ ls
+&lt;/pre&gt;
+&lt;p&gt;All the files will be visible to you. Other operations such as: &lt;em&gt;cd, mkdir&lt;/em&gt; etc are also applicable.&lt;/p&gt;
+&lt;p&gt;If you wish to know more about ADB operations type $ adb in your terminal, you will get all available commands to play with.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://developer.android.com/tools/device.html"&gt;reference&lt;/a&gt;&lt;/p&gt;
+</summary><category term="phonegap"></category><category term="Fedora"></category></entry><entry><title>Starting with Pelican</title><link href="http://anurag619.github.io/static_world/posts/2014/05/starting-with-pelican/" rel="alternate"></link><updated>2014-05-21T04:01:00+05:30</updated><author><name>Anurag</name></author><id>tag:anurag619.github.io/static_world,2014-05-21:posts/2014/05/starting-with-pelican/</id><summary type="html">&lt;p&gt;Hi!&lt;/p&gt;
+&lt;p&gt;This is my first rst post! After dealing with different blogging platforms I found Pelican perfect suited to needs. Its simple and easy to install, start, host and overall its written in Python. I have found a new open source library to contribute to. Further all my codes and articles will be hosted on github, so worries of creating a backup of my local system files.&lt;/p&gt;
+</summary><category term="python"></category><category term="blog"></category><category term="rst"></category><category term="pelican"></category></entry></feed>
