@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Anurag'
 SITENAME = u'Static_World'
-SITEURL = 'http://blog.anuragkr.in'
+SITEURL = 'http://anurag619.github.io'
 
 #Navigation sections and relative URL:
 SECTIONS = [('About', 'howdy.html') ,
