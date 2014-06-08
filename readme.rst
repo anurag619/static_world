@@ -1,5 +1,5 @@
 Static_world (blog)
-========
+===================
 
 This repository holds my blog which you can visit at http://anurag619.github.io/static_world/
 
