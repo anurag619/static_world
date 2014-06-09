@@ -20,13 +20,8 @@ DEFAULT_DATE_FORMAT = '%d %m %Y'
 
 OUTPUT_PATH = 'output'
 
-STATIC_PATHS = ["images", ]
-
-# Shift the installed location of a file
-EXTRA_PATH_METADATA = {
-    'CNAME': {'path': 'CNAME'},
-}
-
+STATIC_PATHS = ['images', 'extra/CNAME']
+EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
 
 
 ARTICLE_URL = ('{slug}/')
@@ -48,7 +43,7 @@ DEFAULT_PAGINATION = 10
 
 DISPLAY_PAGES_ON_MENU = True
 
-PATH = 'cotent'
+PATH = 'content'
 PAGE_DIR = 'pages'
 
 # Uncomment following line if you want document-relative URLs when developing
@@ -82,6 +77,6 @@ NEWEST_FIRST_ARCHIVES = True
 
 # Specify theme
 
-THEME = "flasky/"
+THEME = "content/theme/flasky"
 
 DISPLAY_PAGES_ON_MENU= 'About'
