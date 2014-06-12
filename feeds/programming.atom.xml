@@ -78,7 +78,7 @@ $ phonegap run android
 &lt;/pre&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;At this moment if you have a mobile device connected to the system the app will be installed on the device itself. Read &lt;a class="reference external" href="http://anurag3rd.wordpress.com/2014/02/10/how-to-test-android-apps-on-phone-from-eclipse-ide-in-fedora-19/"&gt;testing production apps on mobile&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;At this moment if you have a mobile device connected to the system the app will be installed on the device itself.&lt;/p&gt;
 </summary><category term="phonegap"></category><category term="Fedora"></category></entry><entry><title>Testing production apps on mobile</title><link href="http://blog.anuragkr.in/posts/2014/05/testing-production-apps-on-mobile/" rel="alternate"></link><updated>2014-05-22T12:01:00+05:30</updated><author><name>Anurag</name></author><id>tag:blog.anuragkr.in,2014-05-22:posts/2014/05/testing-production-apps-on-mobile/</id><summary type="html">&lt;p&gt;Assuming you have ADB and Eclipse IDE installed.&lt;/p&gt;
 &lt;p&gt;I am using Samsung Galaxy Pro to connect to fedora 19 but it shouldn't really matter if you have a different device.&lt;/p&gt;
 &lt;p&gt;In the eclipse toolkit, you have the option to run it directly on a device. It's rather quick to do so but the experience is same as that of emulator.  On your phone:&lt;/p&gt;
