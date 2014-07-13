@@ -80,3 +80,4 @@ NEWEST_FIRST_ARCHIVES = True
 THEME = "content/theme/flasky"
 
 DISPLAY_PAGES_ON_MENU= 'About'
+DISQUS_SITENAME = "static-world"
