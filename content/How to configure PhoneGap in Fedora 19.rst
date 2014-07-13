@@ -84,4 +84,4 @@ The installation page of Phonegap gives some instruction on how to install some 
 
 		$ phonegap run android
 
-At this moment if you have a mobile device connected to the system the app will be installed on the device itself. Read `testing production apps on mobile <http://anurag3rd.wordpress.com/2014/02/10/how-to-test-android-apps-on-phone-from-eclipse-ide-in-fedora-19/>`_
+At this moment if you have a mobile device connected to the system the app will be installed on the device itself.
