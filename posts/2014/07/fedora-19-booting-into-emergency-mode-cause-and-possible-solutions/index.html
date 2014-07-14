@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,700' rel='stylesheet' type='text/css' />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title> Fedora 19 booting into emergency mode [cause and possible solution(s) ] | Static_World </title>
+
+    <link rel="stylesheet" href="../../../../theme/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../theme/css/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../theme/css/font-awesome.css" type="text/css"/>
+  </head>
+  <body>
+    <div class=container>
+<div class="header">
+    <a href="../../../../">Static_World</a> <span class="muted"></span>
+</div>
+
+<div class=navigation>
+    <ul>
+            <li><a href="../../../../howdy.html">About</a> </li>
+            <li><a href="../../../../categories.html">category</a> </li>
+    </ul>
+</div>
+<div class=separator></div>        
+        <div class=body>
+    <h1 class="title"> Fedora 19 booting into emergency mode [cause and possible solution(s) ]</h1>
+    <p class=date> Mon 14 July 2014 </p>
+    <p>Booting up my laptop one morning, I found my usual Fedora 19 login screen missing. Instead I found Fedora emergency screen staring at me. It looked something like this (there were few more lines there):</p>
+<pre class="literal-block">
+Welcome to emergency mode.
+Use &quot;systemctl default&quot; or ^D to activate default mode.
+Type “journalctl” to view system logs.
+Give root password for maintenance:
+(or type Control-D to continue)
+</pre>
+<p>As a normal Linux user I tried entering the commands printed on the screen, also looked into the logs for further clue as what exactly went wrong. As I remember I was playing around with the Apache configuration and updated the file systems, day before yesterday. To my dismay any of the commands mentioned in the emergency mode didn't gave any clue.</p>
+<p>Searching on the internet gave me some clues that I might need to boot from a live cd/pen-drive to work around. But the problem was that the fedora copy was inside my system. I found many forums which had incomplete solutions for the same.</p>
+<p>At last I headed for #fedora channel on IRC and <a class="reference external" href="http://fedoraproject.org/wiki/User:Renich">Renich</a> was kind enough to help me with the issue.</p>
+<p>The following mentioned steps will also help you understand triggering of emergency mode on Fedora and possibly steps to resolve the same.</p>
+<div class="section" id="what-causes-an-emergency-mode-to-appear">
+<h2>What causes an emergency mode to appear</h2>
+<p>There can be many reasons for triggering of emergency mode such as improper shut down of system, power issues etc. Quoting according to <a class="reference external" href="http://docs.fedoraproject.org/en-US/Fedora/15/html/Installation_Guide/ap-rescuemode.html">fedora</a></p>
+<pre class="literal-block">
+When things go wrong, there are ways to fix problems.
+However, these methods require that you understand the system well.
+This chapter describes how to boot into rescue mode, single-user mode,
+and emergency mode, where you can use your own knowledge to repair
+the system
+</pre>
+<p>Oviously I did some nasty things with my system,it might be my system upgradation. But the good news is that you can figure out the real cause of the issue. All you need to do is keep your eyes open. Operating system (here Fedora ) tend to give us reasons for doing anything.</p>
+<p>Try pressing 'ctrl+d' to exit and see if there is an error message written. In my case the OS asked me to
+do manual <a class="reference external" href="http://en.wikipedia.org/wiki/Fsck">fsck</a> on the corrupted disk/file system. Something like this:</p>
+<pre class="literal-block">
+systemd-fsck[576]: /dev/sda1: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY.
+systemd-fsck[576]: (i.e., without -a or -p options)
+</pre>
+<p>The above error message showed me that /dev/sda1 partition needs manual fsck. Another search on the internet gave me <a class="reference external" href="https://ask.fedoraproject.org/en/question/40112/how-to-run-fsck-on-fedora-18/">how to do fsck in fedora</a> But unfortunatly that didnt solved my problem.</p>
+</div>
+<div class="section" id="solution-s-if-any">
+<h2>Solution(s) if any???</h2>
+<ol class="arabic simple">
+<li>The first solution can be following the steps written on the screen. One of them being 'ctrl+d'. Try pressing this again and again and you might resolve the issue. I tried this and I did saw the login screen couple of times.</li>
+</ol>
+<p>Try rebooting; sometimes, it gets fixed just like that.</p>
+<p>If you are still stuck move onto the next step.</p>
+<ol class="arabic" start="2">
+<li><p class="first">As per solution I need a manual fsck on my partition:</p>
+<pre class="literal-block">
+$ fsck.ext4 /dev/sda1
+</pre>
+</li>
+</ol>
+<p>and type y for everything asked. What this did was to repair the filesystem to normal. Oviously I had no idea what was all 'y' for but hey! everything is learning experience, one day I might understand those as well.</p>
+<ol class="arabic" start="3">
+<li><p class="first">Another solution can be typing</p>
+<pre class="literal-block">
+fsck -A
+</pre>
+</li>
+</ol>
+<p>in emergency mode and it might help.</p>
+<p>NOTE: Don't just blindly copy paste the commands mentioned above look for the error messages. Your file system might be different as compared to mine. For example I had sda1 and ext4 while you might have ext3 or 2.
+<a class="reference external" href="http://www.tecmint.com/what-is-ext2-ext3-ext4-and-how-to-create-and-convert-linux-file-systems/">difference between ext2 ext3 ext4</a>
+In my case sda1 partition got a bit screwed and it needed an fsck,look for your issue.</p>
+<p>In case steps 2 and 3 work out well for you, try a reboot and hopefully everything will be back to normal.</p>
+</div>
+
+    
+<div class=twitter>
+<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+    <p class=tags>This entry was tagged as
+      <a href="../../../../tag/internet/">internet</a>
+    </p>
+     <h2>Comments</h2>
+
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'staticworld'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+
+        </div>
+
+        <br></br>
+        
+<div class=footer>
+  <p>&copy; Copyright <script language="JavaScript">var date = new Date(); document.write(date.getFullYear());</script> by Anurag</p>
+  <p> Powered by <a href="http://pypi.python.org/pypi/pelican/" target="_blank">Pelican</a>.  
+    <a href="https://github.com/fjavieralba/flasky">Theme</a>  by <a href="http://fjavieralba.com">fjavieralba</a>
+  </p> 
+  <p>
+    <div class=social style="font-size: 27px;">
+      <ul>
+            
+      </ul>
+    </div>
+  </p>
+</div>    </div>
+  </body>
+</html>

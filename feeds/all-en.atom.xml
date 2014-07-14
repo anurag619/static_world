@@ -1,5 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Static_World</title><link href="http://blog.anuragkr.in/" rel="alternate"></link><link href="http://blog.anuragkr.in/feeds/all-en.atom.xml" rel="self"></link><id>http://blog.anuragkr.in/</id><updated>2014-07-13T00:00:00+05:30</updated><entry><title>How to Install and configure Apache on Fedora 19</title><link href="http://blog.anuragkr.in/posts/2014/07/how-to-install-and-configure-apache-on-fedora-19/" rel="alternate"></link><updated>2014-07-13T00:00:00+05:30</updated><author><name>Anurag</name></author><id>tag:blog.anuragkr.in,2014-07-13:posts/2014/07/how-to-install-and-configure-apache-on-fedora-19/</id><summary type="html">&lt;p&gt;Few days back I was juggling to install the &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Apache_HTTP_Server"&gt;apache&lt;/a&gt; web server on my local machine which has fedora 19. Information on the internet is scattered around and there isn't one tutorial which can you through the entire process. It tooks me quite some time to figure out the exact procedure and the below mentioned steps are the result of that.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Static_World</title><link href="http://blog.anuragkr.in/" rel="alternate"></link><link href="http://blog.anuragkr.in/feeds/all-en.atom.xml" rel="self"></link><id>http://blog.anuragkr.in/</id><updated>2014-07-14T00:00:00+05:30</updated><entry><title>Fedora 19 booting into emergency mode [cause and possible solution(s) ]</title><link href="http://blog.anuragkr.in/posts/2014/07/fedora-19-booting-into-emergency-mode-cause-and-possible-solutions/" rel="alternate"></link><updated>2014-07-14T00:00:00+05:30</updated><author><name>Anurag</name></author><id>tag:blog.anuragkr.in,2014-07-14:posts/2014/07/fedora-19-booting-into-emergency-mode-cause-and-possible-solutions/</id><summary type="html">&lt;p&gt;Booting up my laptop one morning, I found my usual Fedora 19 login screen missing. Instead I found Fedora emergency screen staring at me. It looked something like this (there were few more lines there):&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Welcome to emergency mode.
+Use &amp;quot;systemctl default&amp;quot; or ^D to activate default mode.
+Type “journalctl” to view system logs.
+Give root password for maintenance:
+(or type Control-D to continue)
+&lt;/pre&gt;
+&lt;p&gt;As a normal Linux user I tried entering the commands printed on the screen, also looked into the logs for further clue as what exactly went wrong. As I remember I was playing around with the Apache configuration and updated the file systems, day before yesterday. To my dismay any of the commands mentioned in the emergency mode didn't gave any clue.&lt;/p&gt;
+&lt;p&gt;Searching on the internet gave me some clues that I might need to boot from a live cd/pen-drive to work around. But the problem was that the fedora copy was inside my system. I found many forums which had incomplete solutions for the same.&lt;/p&gt;
+&lt;p&gt;At last I headed for #fedora channel on IRC and &lt;a class="reference external" href="http://fedoraproject.org/wiki/User:Renich"&gt;Renich&lt;/a&gt; was kind enough to help me with the issue.&lt;/p&gt;
+&lt;p&gt;The following mentioned steps will also help you understand triggering of emergency mode on Fedora and possibly steps to resolve the same.&lt;/p&gt;
+&lt;div class="section" id="what-causes-an-emergency-mode-to-appear"&gt;
+&lt;h2&gt;What causes an emergency mode to appear&lt;/h2&gt;
+&lt;p&gt;There can be many reasons for triggering of emergency mode such as improper shut down of system, power issues etc. Quoting according to &lt;a class="reference external" href="http://docs.fedoraproject.org/en-US/Fedora/15/html/Installation_Guide/ap-rescuemode.html"&gt;fedora&lt;/a&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+When things go wrong, there are ways to fix problems.
+However, these methods require that you understand the system well.
+This chapter describes how to boot into rescue mode, single-user mode,
+and emergency mode, where you can use your own knowledge to repair
+the system
+&lt;/pre&gt;
+&lt;p&gt;Oviously I did some nasty things with my system,it might be my system upgradation. But the good news is that you can figure out the real cause of the issue. All you need to do is keep your eyes open. Operating system (here Fedora ) tend to give us reasons for doing anything.&lt;/p&gt;
+&lt;p&gt;Try pressing 'ctrl+d' to exit and see if there is an error message written. In my case the OS asked me to
+do manual &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Fsck"&gt;fsck&lt;/a&gt; on the corrupted disk/file system. Something like this:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+systemd-fsck[576]: /dev/sda1: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY.
+systemd-fsck[576]: (i.e., without -a or -p options)
+&lt;/pre&gt;
+&lt;p&gt;The above error message showed me that /dev/sda1 partition needs manual fsck. Another search on the internet gave me &lt;a class="reference external" href="https://ask.fedoraproject.org/en/question/40112/how-to-run-fsck-on-fedora-18/"&gt;how to do fsck in fedora&lt;/a&gt; But unfortunatly that didnt solved my problem.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="solution-s-if-any"&gt;
+&lt;h2&gt;Solution(s) if any???&lt;/h2&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;The first solution can be following the steps written on the screen. One of them being 'ctrl+d'. Try pressing this again and again and you might resolve the issue. I tried this and I did saw the login screen couple of times.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Try rebooting; sometimes, it gets fixed just like that.&lt;/p&gt;
+&lt;p&gt;If you are still stuck move onto the next step.&lt;/p&gt;
+&lt;ol class="arabic" start="2"&gt;
+&lt;li&gt;&lt;p class="first"&gt;As per solution I need a manual fsck on my partition:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+$ fsck.ext4 /dev/sda1
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;and type y for everything asked. What this did was to repair the filesystem to normal. Oviously I had no idea what was all 'y' for but hey! everything is learning experience, one day I might understand those as well.&lt;/p&gt;
+&lt;ol class="arabic" start="3"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Another solution can be typing&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+fsck -A
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;in emergency mode and it might help.&lt;/p&gt;
+&lt;p&gt;NOTE: Don't just blindly copy paste the commands mentioned above look for the error messages. Your file system might be different as compared to mine. For example I had sda1 and ext4 while you might have ext3 or 2.
+&lt;a class="reference external" href="http://www.tecmint.com/what-is-ext2-ext3-ext4-and-how-to-create-and-convert-linux-file-systems/"&gt;difference between ext2 ext3 ext4&lt;/a&gt;
+In my case sda1 partition got a bit screwed and it needed an fsck,look for your issue.&lt;/p&gt;
+&lt;p&gt;In case steps 2 and 3 work out well for you, try a reboot and hopefully everything will be back to normal.&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="internet"></category></entry><entry><title>How to Install and configure Apache on Fedora 19</title><link href="http://blog.anuragkr.in/posts/2014/07/how-to-install-and-configure-apache-on-fedora-19/" rel="alternate"></link><updated>2014-07-13T00:00:00+05:30</updated><author><name>Anurag</name></author><id>tag:blog.anuragkr.in,2014-07-13:posts/2014/07/how-to-install-and-configure-apache-on-fedora-19/</id><summary type="html">&lt;p&gt;Few days back I was juggling to install the &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Apache_HTTP_Server"&gt;apache&lt;/a&gt; web server on my local machine which has fedora 19. Information on the internet is scattered around and there isn't one tutorial which can you through the entire process. It tooks me quite some time to figure out the exact procedure and the below mentioned steps are the result of that.&lt;/p&gt;
 &lt;p&gt;I assume you have a previous knowledge of vim and its subsequesnt commands, if not this &lt;a class="reference external" href="http://www.engadget.com/2012/07/10/vim-how-to/"&gt;tutorial&lt;/a&gt; might help you.&lt;/p&gt;
 &lt;div class="section" id="installing-apache-webserver"&gt;
 &lt;h2&gt;Installing Apache webserver&lt;/h2&gt;
