@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,700' rel='stylesheet' type='text/css' />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title> how to send multiple pull request on Github | Static_World </title>
+
+    <link rel="stylesheet" href="../../../../theme/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../theme/css/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../theme/css/font-awesome.css" type="text/css"/>
+  </head>
+  <body>
+    <div class=container>
+<div class="header">
+    <a href="../../../../">Static_World</a> <span class="muted"></span>
+</div>
+
+<div class=navigation>
+    <ul>
+            <li><a href="../../../../howdy.html">About</a> </li>
+            <li><a href="../../../../categories.html">category</a> </li>
+    </ul>
+</div>
+<div class=separator></div>        
+        <div class=body>
+    <h1 class="title"> how to send multiple pull request on Github</h1>
+    <p class=date> Mon 04 August 2014 </p>
+    <p>Last day I had this situation where I was required to send multiple pull requests to a open source project. All my previous attempts were turning futile as the commits were getting stacked in a single PR (Pull Request). As I searched through Stackoverflow pages I realized I had to create different branches to request multiple PRs. Here are the steps:</p>
+<ol class="arabic">
+<li><p class="first">You need to create a new branch at first:</p>
+<pre class="literal-block">
+git checkout -b new-branch-name
+</pre>
+</li>
+<li><p class="first">Now you will have to select a previous commit from where you wish to make changes. This can be from the SHA where the original project was forked:</p>
+<pre class="literal-block">
+git cherry-pick SHA-hash-of-commit
+</pre>
+</li>
+</ol>
+<p>You can get SHA-hash of your commits from:</p>
+<pre class="literal-block">
+git log
+</pre>
+<p>Alternativly you can even do:</p>
+<pre class="literal-block">
+git log --pretty=format:'%h'
+</pre>
+<p>to get all SHA-hash but you have to be aware which SHA-hash will work for you.</p>
+<ol class="arabic" start="3">
+<li><p class="first">Make the relative changes and push them (after git add &amp; git commit):</p>
+<pre class="literal-block">
+git push origin new-branch-name
+</pre>
+</li>
+</ol>
+<p>And then you can view the new branch from your Github profile, switch to it and make the pull request.</p>
+
+    
+<div class=twitter>
+<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+    <p class=tags>This entry was tagged as
+      <a href="../../../../tag/github/">Github</a>
+      <a href="../../../../tag/git/">Git</a>
+    </p>
+     <h2>Comments</h2>
+
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'staticworld'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+
+        </div>
+
+        <br></br>
+        
+<div class=footer>
+  <p>&copy; Copyright <script language="JavaScript">var date = new Date(); document.write(date.getFullYear());</script> by Anurag</p>
+  <p> Powered by <a href="http://pypi.python.org/pypi/pelican/" target="_blank">Pelican</a>.  
+    <a href="https://github.com/fjavieralba/flasky">Theme</a>  by <a href="http://fjavieralba.com">fjavieralba</a>
+  </p> 
+  <p>
+    <div class=social style="font-size: 27px;">
+      <ul>
+            
+      </ul>
+    </div>
+  </p>
+</div>    </div>
+  </body>
+</html>

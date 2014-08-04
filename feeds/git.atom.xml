@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Static_World</title><link href="http://blog.anuragkr.in/" rel="alternate"></link><link href="http://blog.anuragkr.in/feeds/git.atom.xml" rel="self"></link><id>http://blog.anuragkr.in/</id><updated>2014-08-04T00:00:00+05:30</updated><entry><title>how to send multiple pull request on Github</title><link href="http://blog.anuragkr.in/posts/2014/08/how-to-send-multiple-pull-request-on-github/" rel="alternate"></link><updated>2014-08-04T00:00:00+05:30</updated><author><name>Anurag</name></author><id>tag:blog.anuragkr.in,2014-08-04:posts/2014/08/how-to-send-multiple-pull-request-on-github/</id><summary type="html">&lt;p&gt;Last day I had this situation where I was required to send multiple pull requests to a open source project. All my previous attempts were turning futile as the commits were getting stacked in a single PR (Pull Request). As I searched through Stackoverflow pages I realized I had to create different branches to request multiple PRs. Here are the steps:&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;You need to create a new branch at first:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git checkout -b new-branch-name
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Now you will have to select a previous commit from where you wish to make changes. This can be from the SHA where the original project was forked:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git cherry-pick SHA-hash-of-commit
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You can get SHA-hash of your commits from:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git log
+&lt;/pre&gt;
+&lt;p&gt;Alternativly you can even do:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git log --pretty=format:'%h'
+&lt;/pre&gt;
+&lt;p&gt;to get all SHA-hash but you have to be aware which SHA-hash will work for you.&lt;/p&gt;
+&lt;ol class="arabic" start="3"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Make the relative changes and push them (after git add &amp;amp; git commit):&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git push origin new-branch-name
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;And then you can view the new branch from your Github profile, switch to it and make the pull request.&lt;/p&gt;
+</summary><category term="Github"></category><category term="Git"></category></entry></feed>
