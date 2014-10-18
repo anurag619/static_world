@@ -19,7 +19,7 @@ Last year I was just hopping from one Audi to another, which was definitely not 
 
 Between I was in the video team who shot the entire event, so cheers. :D
 
-The panel discussion (Flask vs Django vs Web.py) on Day 2 was another delight, at then end of 45 minutes discussion by the elites, Django emerged as the clear winner. The votes were based out of an made by `Aravind <https://twitter.com/twitortat>`_ which calculated number of miscalls to numbers assigned to three frameworks. Here is a snapshot of the `votes <https://twitter.com/twitortat/status/516263794352197632>`_
+The panel discussion (Flask vs Django vs Web.py) on Day 2 was another delight, at then end of 45 minutes discussion, Django emerged as the clear winner. The votes were based out of an app made by `Aravind <https://twitter.com/twitortat>`_ which calculated number of miscalls to numbers assigned to three frameworks. Here is a snapshot of the `votes <https://twitter.com/twitortat/status/516263794352197632>`_
 
 Food, like every year was the center of attraction, heck it was even better than last years. Whenever I tend to invite people for Pycon, food remains my primary source to convince them. 
 
