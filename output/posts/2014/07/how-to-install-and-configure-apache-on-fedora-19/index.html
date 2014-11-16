@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <title>Static_World</title>
+        <meta charset="utf-8" />
+        <link href="http://blog.anuragkr.in/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Static_World Full Atom Feed" />
+        <link href="http://blog.anuragkr.in/feeds/fedora.atom.xml" type="application/atom+xml" rel="alternate" title="Static_World Categories Atom Feed" />
+
+
+
+    <meta name="tags" contents="internet" />
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="../../../../">Static_World <strong></strong></a></h1>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
+            <li><a href="../../../../howdy.html">Howdy!</a></li>
+        </ul></nav><!-- /#menu -->
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="../../../../posts/2014/07/how-to-install-and-configure-apache-on-fedora-19/" rel="bookmark"
+         title="Permalink to How to Install and configure Apache on Fedora 19">How to Install and configure Apache on Fedora 19</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <abbr class="published" title="2014-07-13T00:00:00">
+      Sun 13 July 2014
+    </abbr>
+    <address class="vcard author">
+      By           <a class="url fn" href="../../../../author/Anurag/">Anurag</a>
+    </address>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>Few days back I was juggling to install the <a class="reference external" href="http://en.wikipedia.org/wiki/Apache_HTTP_Server">apache</a> web server on my local machine which has fedora 19. Information on the internet is scattered around and there isn't one tutorial which can you through the entire process. It tooks me quite some time to figure out the exact procedure and the below mentioned steps are the result of that.</p>
+<p>I assume you have a previous knowledge of vim and its subsequesnt commands, if not this <a class="reference external" href="http://www.engadget.com/2012/07/10/vim-how-to/">tutorial</a> might help you.</p>
+<div class="section" id="installing-apache-webserver">
+<h2>Installing Apache webserver</h2>
+<p>1:</p>
+<pre class="literal-block">
+sudo yum install httpd
+</pre>
+</div>
+<div class="section" id="configure-apache-to-run-your-local-website">
+<h2>Configure Apache to run your local website</h2>
+<p>2:</p>
+<pre class="literal-block">
+vim /etc/httpd/conf/httpd.conf
+</pre>
+<p>Browse to the end of file (you do not need to change anything else) and append the following at bottom:</p>
+<pre class="literal-block">
+&lt;VirtualHost *:80&gt;
+DocumentRoot /var/www/your-site-name
+ServerName local.your-mysite-name
+&lt;/VirtualHost&gt;
+</pre>
+<p>Add your site (folder) name to DocumentRoot and ServerName. For example in my case it would be /var/www/site and local.site</p>
+<p>Note: whatever site/folder-name you are adding above, must exists. If its not create such folder. After adding the above, you can save and close the file.</p>
+<p>3:</p>
+<pre class="literal-block">
+vim /etc/hosts
+</pre>
+<p>Append the following to the file:</p>
+<pre class="literal-block">
+127.0.0.1    local.your-site-name
+</pre>
+<p>For example in my case it will be: local.mysite. Now, save and close the file.</p>
+<ol class="arabic" start="4">
+<li><p class="first">Start Apache:</p>
+<pre class="literal-block">
+sudo service httpd start
+</pre>
+</li>
+<li><p class="first">Check if apache is running or not:</p>
+<pre class="literal-block">
+sudo service httpd status
+</pre>
+</li>
+<li><p class="first">Run:</p>
+<pre class="literal-block">
+ps -eZ | grep httpd
+</pre>
+</li>
+</ol>
+<p>to view the httpd processes</p>
+<p>You can now access your site at the address you specified above, e.g. local.your-site-name .</p>
+<p>Note:  do not add www at the start.</p>
+</div>
+
+  </div><!-- /.entry-content -->
+</section>
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+</body>
+</html>
