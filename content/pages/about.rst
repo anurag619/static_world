@@ -8,7 +8,11 @@ Howdy!
 
 Hi, I’m Anurag and this is my blog (a.k.a logs). This About page will be a cluster of archives over the years. So, enjoy the timely changes.
 
-|
+**<04-05-2015>**
+
+I am updating this almost after a year. Lot has changed since then, for starters I don't write much.
+I have started working as a frontend developer now. Python is not even my weapon now. :D
+Frankly speaking I am bit of lost. Hopfully the next the write this I have some better things to pour. 
 
 **<21-05-2014>**
 
