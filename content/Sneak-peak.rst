@@ -1,7 +1,7 @@
 Sneak-peak: View hidden pics of any facebook user
 ---------------------------------------------------
 :date: 2015-06-01 1:20
-:category: life
+:category: internet
 :tags:
 :author: Anurag
 
